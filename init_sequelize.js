@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
     logging: false,
   }
 );
-const URLModelFunction = require("./src/models/url.js");
+const URLModelFunction = require("./src/models/url");
 const URL = URLModelFunction(sequelize, DataTypes);
 
 module.exports = {
