@@ -8,7 +8,7 @@ router.post("/shorten", async (req, res) => {
     res.status(201).json({
       message: "URL shortened successfully",
       shortCode: shortUrlCode,
-      fullShortUrl: `http://localhost:3000/${shortUrlCode}`,
+      fullShortUrl: `${req.protocol}://${req.get("host")}/${shortUrlCode}`,
     });
   } catch (error) {
     const statusCode = error.statusCode || 500;

@@ -14,26 +14,15 @@ app.use(express.static(path.join(__dirname, "..", "client")));
 app.use("/", redirectRoutes);
 app.use("/api", apiRoutes);
 
-async function startServer() {
-  try {
-    await sequelize.sync({ force: false });
-    console.log(`Database and tables synchronized successfully.`);
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log(
+      "Database synchronized successfully in local development mode."
+    );
+  })
+  .catch((error) => {
+    console.error("Error syncing database:", error);
+  });
 
-    const server = app.listen(port, () => {
-      console.log(`Server listening to port: ${port}`);
-    });
-
-    process.on("SIGINT", async () => {
-      console.log("\nClosing server and database connection...");
-      server.close(async () => {
-        await sequelize.close();
-        console.log("Server and database connection closed.");
-        process.exit(0);
-      });
-    });
-  } catch (error) {
-    console.error("Error connecting to database or syncing tables:", error);
-  }
-}
-
-startServer();
+module.exports = app;
