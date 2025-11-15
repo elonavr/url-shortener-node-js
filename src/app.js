@@ -14,15 +14,4 @@ app.use(express.static(path.join(__dirname, "..", "client")));
 app.use("/", redirectRoutes);
 app.use("/api", apiRoutes);
 
-sequelize
-  .sync({ force: false })
-  .then(() => {
-    console.log(
-      "Database synchronized successfully in local development mode."
-    );
-  })
-  .catch((error) => {
-    console.error("Error syncing database:", error);
-  });
-
 module.exports = app;

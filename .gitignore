@@ -8,3 +8,5 @@ npm-debug.log*
 # DB
 *.sqlite
 /database.sqlite
+
+sync_db.js
