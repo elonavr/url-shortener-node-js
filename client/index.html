@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>URL Shortener</title>
+    </head> 
+    <body>
+        <div id="app-wrapper">
+            <header>
+                <h1>URL Shortener</h1>
+            </header>
+            
+            <main>
+                <section class="input-section">
+                    <p>Enter long URL:</p>
+                    <input type="url" id="long-url-input" required placeholder="https://www.example.com/very/long/path"> 
+                    <button id="shorten-button">Shorten URL</button>
+                </section>
+                
+                <hr>
+
+                <section class="output-section">
+                    <h2>Short URL:</h2>
+                    <p id="short-url-output"></p>
+                </section>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 URL Shortener | Created by Elon Avraham</p>
+        </footer>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
